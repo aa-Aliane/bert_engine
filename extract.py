@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 
 for i, name in enumerate(tqdm(os.listdir('data'))):
-    parsed = parser.from_file('0/'+name)
+    parsed = parser.from_file('data/'+name)
     content = parsed['content']
     metadata = parsed['metadata']
     content = re.sub("\n|\r", "", content)
