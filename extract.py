@@ -12,7 +12,7 @@ for i, name in enumerate(tqdm(os.listdir('data'))):
     metadata = parsed['metadata']
     content = re.sub("\n|\r", "", content)
 
-    print(metadata['dc:title'])
+    print(metadata)
 
     if len(content) > 200:
         with open('extracted/'+str(i)+'.txt', 'w', encoding="utf8") as f:
