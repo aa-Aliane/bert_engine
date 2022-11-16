@@ -1,7 +1,7 @@
 import os, faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
-model = SentenceTransformer('all-MiniLM-L12-v1')
+model = SentenceTransformer('msmarco-distilbert-base-dot-prod-v3')
 
 
 
