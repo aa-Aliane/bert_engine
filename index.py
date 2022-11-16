@@ -10,7 +10,7 @@ model = SentenceTransformer('all-MiniLM-L12-v1')
 alldocs = []
 
 for name in os.listdir('paragraphs'):
-    with open('extracted/'+name, 'r', encoding="utf8") as f:
+    with open('paragraphs/'+name, 'r', encoding="utf8") as f:
         alldocs += [f.read()]
         
 encoded_data = model.encode(alldocs)
