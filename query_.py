@@ -1,4 +1,4 @@
-import faiss
+import faiss, os
 from sentence_transformers import SentenceTransformer
 import numpy as np
 import time
@@ -21,4 +21,10 @@ def search(query, top_k, index, model):
     return results
 
 
-print(search(query, 5, index, model))
+indexes = search(query, 5, index, model)
+
+all = os.listdir('paragraphs')
+
+indexes = [all[i] for i in indexes]
+
+print(indexes)
