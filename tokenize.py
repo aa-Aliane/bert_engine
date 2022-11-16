@@ -1,5 +1,5 @@
 import fasttokenizer, os
-
+from rich.progress import track
 
 
 segmenter = fasttokenizer.Segmenter()
@@ -10,7 +10,7 @@ segmenter = fasttokenizer.Segmenter()
 
 
 
-for name in os.listdir('extracted'):
+for name in track(os.listdir('extracted'), description="Processing..."):
     with open('extracted/'+name, 'r', encoding="utf8") as f:
         text = f.read()
         output: str = segmenter.normalize_and_segment(text)
@@ -26,6 +26,7 @@ for name in os.listdir('extracted'):
         print(paragraphs)
         
         for i, p in enumerate(paragraphs):
-            with open('paragraphs/'+name+'_'+str(i), 'w', encoding="utf8") as f:
-                f.write(p)
+            if p:
+                with open('paragraphs/'+name+'_'+str(i), 'w', encoding="utf8") as f:
+                    f.write(p)
     
