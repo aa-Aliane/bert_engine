@@ -1,6 +1,5 @@
 import fasttokenizer, os
 
-from tqdm import tqdm
 
 
 segmenter = fasttokenizer.Segmenter()
@@ -11,7 +10,7 @@ segmenter = fasttokenizer.Segmenter()
 
 
 
-for name in tqdm(os.listdir('extracted')):
+for name in os.listdir('extracted'):
     with open('extracted/'+name, 'r', encoding="utf8") as f:
         text = f.read()
         output: str = segmenter.normalize_and_segment(text)
